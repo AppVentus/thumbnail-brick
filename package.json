@@ -1,0 +1,35 @@
+{
+  "name": "thumbnail",
+  "version": "1.0.0",
+  "description": "HTML & CSS library for thumbnail component",
+  "main": "thumbnail.scss",
+  "scripts": {
+    "test": "gulp",
+    "dev": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AppVentus/thumbnail-brick.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AppVentus/thumbnail-brick/issues"
+  },
+  "homepage": "https://github.com/AppVentus/thumbnail-brick#readme",
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "fs-extra": "^0.26.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-ext-replace": "^0.2.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-prettify": "^0.4.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-twig": "^0.5.0",
+    "run-sequence": "^1.1.5"
+  }
+}

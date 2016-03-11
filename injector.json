@@ -1,0 +1,11 @@
+{
+  "stylevendors": [
+    "@bower/thumbnail/thumbnail.scss"
+  ],
+  "stylegui": [
+    "@bower/thumbnail/gui/gui.scss"
+  ],
+  "gui": [
+    "@bower/thumbnail/gui/gui.html.twig"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "thumbnail",
+  "homepage": "https://github.com/AppVentus/thumbnail-brick",
+  "authors": [
+    "Loïc Goyet <loic@appventus.com>"
+  ],
+  "description": "HTML & CSS library for thumbnail",
+  "main": "thumbnail.scss",
+  "moduleType": [],
+  "keywords": [
+    "css",
+    "html"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
