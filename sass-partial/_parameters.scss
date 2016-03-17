@@ -1,0 +1,71 @@
+// scss-lint:disable ColorVariable
+
+// thumbnail
+$tbnl--border-width: 1px !default;
+$tbnl--border-color: rgb(226, 226, 226) !default;
+$tbnl--border-radius: 5px !default;
+$tbnl--box-shadow: none !default;
+$tbnl-hover--box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.1) !default;
+$tbnl--transition-duration: 300ms !default;
+$tbnl--transition-timing-function: ease !default;
+$tbnl--font-size: 14px !default;
+
+// thumbnail__img
+$tbnl-img--inner: false !default;
+
+$tbnl--sizes: (
+  'sm': (
+    'font-size': 14px,
+    'img-height': 98px,
+    'body-padding': 10px, // must be a single value
+    'btn-padding-x': 17px,
+    'btn-padding-y': 10px,
+    'btn-font-size': 16px,
+    'btn-line-height': 1.175,
+    'btn-border-width': 1px,
+    'btn-border-radius': 5px,
+    'btn-font-weight': 400,
+  ),
+  'md': (
+    'font-size': 14px,
+    'img-height': 155px,
+    'body-padding': 10px, // must be a single value
+    'btn-padding-x': 19px,
+    'btn-padding-y': 8px,
+    'btn-font-size': 16px,
+    'btn-line-height': 1.375,
+    'btn-border-width': 1px,
+    'btn-border-radius': 5px,
+    'btn-font-weight': 400,
+  )
+) !default;
+
+
+// thumbnail__body
+$tbnl-body--padding: 10px !default;
+
+// thumbnail__btn
+$tbnl-btn--align: 'left' !default; // can be 'left'|'center'|'right'
+
+$tbnl-btn--themes: (
+  'default': (
+    'background-color': rgb(255, 255, 255),
+    'background-color--hover': rgb(88, 88, 90),
+    'color': rgb(88, 88, 90),
+    'color--hover': rgb(255, 255, 255),
+    'border-color': currentColor,
+    'border-color--hover': rgb(88, 88, 90),
+  ),
+  'info': (
+    'background-color': rgb(46, 59, 90),
+    'background-color--hover': rgb(41, 54, 85),
+    'color': rgb(255, 255, 255),
+    'color--hover': rgb(255, 255, 255),
+    'border-color': rgb(41, 54, 85),
+    'border-color--hover': rgb(36, 49, 80),
+  ),
+) !default;
+
+
+// Grid
+$tbnlgrid--gutter: 30px !default;

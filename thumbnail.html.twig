@@ -1,3 +1,17 @@
-<div class="thumbnail">
-    hello world !
-</div>
+<a href="{{ href }}" class="thumbnail thumbnail--{{ size|default('md') }}">
+    {% if img.src is defined %}
+        <img class="thumbnail__img thumbnail__img--{{ size|default('md') }}" src="{{ img.src }}" {% if img.alt is defined %}alt="{{ img.alt }}"{% endif %}>
+    {% endif %}
+
+    <span class="thumbnail__content">
+        {% if btn.label is defined %}
+            <span class="thumbnail__btn thumbnail__btn--{{ size|default('md') }} thumbnail__btn--theme-{{ btn.theme|default('default') }}{% if btn.block|default(false) %} thumbnail__btn--block{% endif %}">
+                {{ btn.label }}
+            </span>
+        {% endif %}
+
+        <span class="thumbnail__body thumbnail__body--{{ size|default('md') }}">
+            {% block thumbnail_body %}{{ content|default('hello world') }}{% endblock %}
+        </span>
+    </span>
+</a>

@@ -1,0 +1,17 @@
+@mixin when-tbnl-hovered {
+  .thumbnail:hover & {
+    @content;
+  }
+}
+
+@mixin when-sibling-btn($size, $block) {
+  @if $block {
+    .thumbnail__btn--#{$size}.thumbnail__btn--block + & {
+      @content;
+    }
+  } @else {
+    .thumbnail__btn--#{$size} + & {
+      @content;
+    }
+  }
+}

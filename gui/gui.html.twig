@@ -1,3 +1,197 @@
 <section>
   <h2>thumbnail</h2>
+
+  {% set img = img|default('http://content.pulse.ea.com/content/starwars-ea-com/fr_FR/starwars/battlefront/news-articles/training-missions-learn-the-ways-of-star-wars-battlefront/_jcr_content/featuredImage/renditions/rendition1.img.jpg') %}
+
+  {% for isblock in btnBlocks|default([false]) %}
+      {% for size in sizes|default(['md']) %}
+          {% for theme in themes|default(['default']) %}
+              <h4>Thumbnail - {{ theme }} / {{ size }} {% if isblock %}/ block{% endif %}</h4>
+              <ul class="thumbnail-grid">
+                  {% for item in 1..4 %}
+                      <li class="thumbnail-grid__col">
+                          {% embed '../../thumbnail.html.twig' with { href: '#', size: size, img: { src: img, alt: 'alt' }, btn: { label: 'Lire la suite', block: isblock, theme: theme }} %}
+                          {% endembed %}
+                      </li>
+                  {% endfor %}
+              </ul>
+
+              <pre>&lt;ul class="thumbnail-grid"&gt;
+&lt;li class="thumbnail-grid__col"&gt;
+  {{ "{% embed '../../thumbnail.html.twig' with {" }}
+      {{ 'href: "#",' }}
+      {{ "size: " ~ size ~ "," }}
+      {{ "img: {" }}
+          {{ 'src: "path/to/your/img.jpg",' }}
+          {{ "alt: 'alt'" }}
+      {{ "}," }}
+      {{ "btn: {" }}
+          {{ "label: 'Lire la suite'," }}
+          {{ "block: " ~ isblock ~ "," }}
+          {{ "theme: " ~ theme }}
+      {{ "}," }}
+      {{ "content: 'hello world !'" }}
+  {{ "} %}" }}
+      {{ "{% block thumbnail_body %}hello world{% endblock %}" }}
+  {{ "{% endembed %}" }}
+&lt;/li&gt;
+...
+&lt;/ul&gt;</pre>
+          {% endfor %}
+      {% endfor %}
+  {% endfor %}
+
+    <h3>Sass parameters</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Options</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th>$tbnl--border-width</th>
+                <td>unit</td>
+                <td>Border width of a thumbnail</td>
+                <td>1px</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--border-color</th>
+                <td>color</td>
+                <td>Border color of a thumbnail</td>
+                <td>rgb(226, 226, 226)</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--border-radius</th>
+                <td>unit</td>
+                <td>Border radius of a thumbnail</td>
+                <td>5px</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--box-shadow</th>
+                <td>shadow</td>
+                <td>Box shadow of a thumbnail</td>
+                <td>none</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl-hover--box-shadow</th>
+                <td>shadow</td>
+                <td>Box shadow of a thumbnail when hovered</td>
+                <td>0 1px 6px 0 rgba(0, 0, 0, 0.1)</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--transition-duration</th>
+                <td>duration</td>
+                <td>The animation duration for all the thumbnail and its elements</td>
+                <td>300ms</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--transition-timing-function</th>
+                <td>timing-function</td>
+                <td>The animation timing function for all the thumbnail and its elements</td>
+                <td>ease</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--font-size</th>
+                <td>unit</td>
+                <td>The font size for the Thumbnail</td>
+                <td>14px</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl-img--inner</th>
+                <td>boolean</td>
+                <td>Do the image is inside the border on goes over it</td>
+                <td>false</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl--sizes</th>
+                <td>map</td>
+                <td>List of sass map with as key the thumbnail size name and as value a list of properties</td>
+                <td>(
+                    'sm': (
+                        'font-size': 14px,
+                        'img-height': 98px,
+                        'body-padding': 10px, // must be a single value
+                        'btn-padding-x': 17px,
+                        'btn-padding-y': 10px,
+                        'btn-font-size': 16px,
+                        'btn-line-height': 1.175,
+                        'btn-border-width': 1px,
+                        'btn-border-radius': 5px,
+                        'btn-font-weight': 400,
+                    ),
+                    'md': (
+                        'font-size': 14px,
+                        'img-height': 155px,
+                        'body-padding': 10px, // must be a single value
+                        'btn-padding-x': 19px,
+                        'btn-padding-y': 8px,
+                        'btn-font-size': 16px,
+                        'btn-line-height': 1.375,
+                        'btn-border-width': 1px,
+                        'btn-border-radius': 5px,
+                        'btn-font-weight': 400,
+                    )
+                )</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl-body--padding</th>
+                <td>unit</td>
+                <td>Size of the padding for the thumbnail body</td>
+                <td>10px</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl-btn--align</th>
+                <td>string</td>
+                <td>The alignment of the btn, can be 'left'|'center'|'right' </td>
+                <td>'left'</td>
+            </tr>
+
+            <tr>
+                <th>$tbnl-btn--themes</th>
+                <td>map</td>
+                <td>List of sass map with as key the size btn theme and as value a list of properties</td>
+                <td>(
+                    'default': (
+                        'background-color': rgb(255, 255, 255),
+                        'background-color--hover': rgb(88, 88, 90),
+                        'color': rgb(88, 88, 90),
+                        'color--hover': rgb(255, 255, 255),
+                        'border-color': currentColor,
+                        'border-color--hover': rgb(88, 88, 90),
+                    ),
+                    'info': (
+                        'background-color': rgb(46, 59, 90),
+                        'background-color--hover': rgb(41, 54, 85),
+                        'color': rgb(255, 255, 255),
+                        'color--hover': rgb(255, 255, 255),
+                        'border-color': rgb(41, 54, 85),
+                        'border-color--hover': rgb(36, 49, 80),
+                    ),
+                )</td>
+            </tr>
+
+            <tr>
+                <th>$tbnlgrid--gutter</th>
+                <td>unit</td>
+                <td>The gutter space for the thumbnail grid</td>
+                <td>30px</td>
+            </tr>
+        </tbody>
+    </table>
 </section>

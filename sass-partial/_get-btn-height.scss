@@ -1,0 +1,9 @@
+@function get-btn-height($size) {
+  $btn: map-get($tbnl--sizes, $size);
+  $btn--padding-y: map-get($btn, 'btn-padding-y');
+  $btn--line-height: map-get($btn, 'btn-line-height');
+  $btn--font-size: map-get($btn, 'btn-font-size');
+  $btn--line-height-computed: floor($btn--line-height * $btn--font-size);
+  $btn--border-width: map-get($btn, 'btn-border-width');
+  @return $btn--line-height-computed + ($btn--padding-y * 2) + ($btn--border-width * 2);
+}
