@@ -21,6 +21,7 @@
   font-size: $tbnl--font-size;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   @if $tbnl--box-shadow != none {
     box-shadow: $tbnl--box-shadow;
@@ -64,7 +65,8 @@
 
 .thumbnail__img {
   width: if($tbnl-img--inner, calc(100% + #{$tbnl--border-width * 2}), 100%);
-  object-fit: cover;
+  display: block;
+  background-size: cover;
   border-top-left-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
   border-top-right-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
   user-select: none;

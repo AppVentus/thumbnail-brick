@@ -1,6 +1,6 @@
 <a href="{{ href }}" class="thumbnail thumbnail--{{ size|default('md') }}">
-    {% if img.src is defined %}
-        <img class="thumbnail__img thumbnail__img--{{ size|default('md') }}" src="{{ img.src }}" {% if img.alt is defined %}alt="{{ img.alt }}"{% endif %}>
+    {% if img is defined %}
+        <span class="thumbnail__img thumbnail__img--{{ size|default('md') }}" style="background-image: url('{{ img }}');"></span>
     {% endif %}
 
     <span class="thumbnail__content">
