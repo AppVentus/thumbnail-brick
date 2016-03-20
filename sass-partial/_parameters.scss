@@ -69,3 +69,10 @@ $tbnl-btn--themes: (
 
 // Grid
 $tbnlgrid--gutter: 30px !default;
+$tbnlgrid-col--width: (
+  'xs': 100%,
+  'sm': 100%,
+  'md': 50%,
+  'lg': 33.333333%,
+  'xl': 25%,
+) !default;

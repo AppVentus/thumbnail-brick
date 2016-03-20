@@ -208,14 +208,6 @@
  * -------------------
  */
 
-$tbnlgrid-col--width: (
-  'xs': 100%,
-  'sm': 100%,
-  'md': 50%,
-  'lg': 33.333333%,
-  'xl': 25%,
-);
-
 .thumbnail-grid__col {
   width: 100%;
   padding-left: floor($tbnlgrid--gutter / 2);
