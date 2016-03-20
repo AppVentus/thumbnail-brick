@@ -10,7 +10,7 @@
               <ul class="thumbnail-grid">
                   {% for item in 1..4 %}
                       <li class="thumbnail-grid__col">
-                          {% embed '../../thumbnail.html.twig' with { href: '#', size: size, img: { src: img, alt: 'alt' }, btn: { label: 'Lire la suite', block: isblock, theme: theme }} %}
+                          {% embed '@bower/thumbnail/thumbnail.html.twig' with { href: '#', size: size, img: { src: img, alt: 'alt' }, btn: { label: 'Lire la suite', block: isblock, theme: theme }} %}
                           {% endembed %}
                       </li>
                   {% endfor %}
@@ -18,7 +18,7 @@
 
               <pre>&lt;ul class="thumbnail-grid"&gt;
 &lt;li class="thumbnail-grid__col"&gt;
-  {{ "{% embed '../../thumbnail.html.twig' with {" }}
+  {{ "{% embed '@bower/thumbnail/thumbnail.html.twig' with {" }}
       {{ 'href: "#",' }}
       {{ "size: " ~ size ~ "," }}
       {{ 'img: "path/to/your/img.jpg",' }}
