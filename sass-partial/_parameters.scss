@@ -45,7 +45,7 @@ $tbnl--sizes: (
 $tbnl-body--padding: 10px !default;
 
 // thumbnail__btn
-$tbnl-btn--align: 'left' !default; // can be 'left'|'center'|'right'
+$tbnl-btn--position: ('left', 'block', 'center') !default; // can be 'left'|'center'|'right'
 
 $tbnl-btn--themes: (
   'default': (

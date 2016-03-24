@@ -1,6 +1,7 @@
 @import 'sass-partial/parameters';
 @import 'sass-partial/context';
 @import 'sass-partial/get-btn-height';
+@import 'sass-partial/map-contain';
 
 /**
  * thumbnail
@@ -118,7 +119,7 @@
 
 .thumbnail__btn {
   display: inline-block;
-  margin: 0 if($tbnl-btn--align == 'center', 0, $tbnl-body--padding) $tbnl-body--padding;
+  margin: 0 $tbnl-body--padding $tbnl-body--padding;
   border-style: solid;
   transition-property: background-color, color, border-color;
   transition-duration: $tbnl--transition-duration;
@@ -126,16 +127,6 @@
   user-select: none;
   position: absolute;
   bottom: 0;
-
-  @if $tbnl-btn--align == 'left' {
-    left: 0;
-  } @elseif $tbnl-btn--align == 'right' {
-    right: 0;
-  } @elseif $tbnl-btn--align == 'center' {
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-  }
 }
 
 // themes
@@ -165,21 +156,46 @@
   }
 }
 
-// Block
-.thumbnail__btn--block {
-  margin: 0;
-  border-radius: 0;
-  text-align: center;
-  width: if($tbnl-img--inner, calc(100% + #{$tbnl--border-width * 2}), 100%);
-  border-bottom-left-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
-  border-bottom-right-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
-  border-color: transparent;
-
-  @if $tbnl-img--inner {
-    margin-bottom: -$tbnl--border-width;
-    margin-left: -$tbnl--border-width;
+// positions
+@if map-contains($tbnl-btn--position, 'left') {
+  .thumbnail__btn--left {
+    left: 0;
   }
 }
+
+@if map-contains($tbnl-btn--position, 'right') {
+  .thumbnail__btn--right {
+    right: 0;
+  }
+}
+
+@if map-contains($tbnl-btn--position, 'center') {
+  .thumbnail__btn--center {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@if map-contains($tbnl-btn--position, 'block') {
+  .thumbnail__btn--block {
+    margin: 0;
+    border-radius: 0;
+    text-align: center;
+    width: if($tbnl-img--inner, calc(100% + #{$tbnl--border-width * 2}), 100%);
+    border-bottom-left-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
+    border-bottom-right-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
+    border-color: transparent;
+
+    @if $tbnl-img--inner {
+      margin-bottom: -$tbnl--border-width;
+      margin-left: -$tbnl--border-width;
+    }
+  }
+}
+
 
 /**
  * thumbnail-grid

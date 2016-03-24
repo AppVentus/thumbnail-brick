@@ -4,7 +4,9 @@
 
     {% if thmbnlGui is not defined %}
         {% set thmbnlGui = [
-            { block: false, size: 'md', theme: 'default' },
+            { position: 'left', size: 'md', theme: 'default' },
+            { position: 'center', size: 'md', theme: 'default' },
+            { position: 'block', size: 'md', theme: 'default' },
         ] %}
     {% endif %}
 
@@ -20,8 +22,8 @@
                         img: img,
                         btn: {
                             label: 'Lire la suite',
-                            block: thmbnl.block,
-                            theme: thmbnl.theme
+                            theme: thmbnl.theme,
+                            position: thmbnl.position,
                         }
                     } %}
                     {% endembed %}
@@ -146,9 +148,9 @@
 
             <tr>
                 <th>$tbnl-btn--align</th>
-                <td>string</td>
-                <td>The alignment of the btn, can be 'left'|'center'|'right' </td>
-                <td>'left'</td>
+                <td>map</td>
+                <td>The alignment of the btn, can be 'left'|'center'|'right'|'block' </td>
+                <td>('left', 'block', 'center')</td>
             </tr>
 
             <tr>
