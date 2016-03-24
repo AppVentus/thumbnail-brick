@@ -1,45 +1,37 @@
 <section>
-  <h2>thumbnail</h2>
+    <h2>thumbnail</h2>
+    {% set img = img|default('http://content.pulse.ea.com/content/starwars-ea-com/fr_FR/starwars/battlefront/news-articles/training-missions-learn-the-ways-of-star-wars-battlefront/_jcr_content/featuredImage/renditions/rendition1.img.jpg') %}
 
-  {% set img = img|default('http://content.pulse.ea.com/content/starwars-ea-com/fr_FR/starwars/battlefront/news-articles/training-missions-learn-the-ways-of-star-wars-battlefront/_jcr_content/featuredImage/renditions/rendition1.img.jpg') %}
+    {% if thmbnlGui is not defined %}
+        {% set thmbnlGui = [
+            { block: false, size: 'md', theme: 'default' },
+        ] %}
+    {% endif %}
 
-  {% for isblock in btnBlocks|default([false]) %}
-      {% for size in sizes|default(['md']) %}
-          {% for theme in themes|default(['default']) %}
-              <h4>Thumbnail - {{ theme }} / {{ size }} {% if isblock %}/ block{% endif %}</h4>
-              <ul class="thumbnail-grid">
-                  {% for item in 1..4 %}
-                      <li class="thumbnail-grid__col">
-                          {% embed '@bower/thumbnail/thumbnail.html.twig' with { href: '#', size: size, img: { src: img, alt: 'alt' }, btn: { label: 'Lire la suite', block: isblock, theme: theme }} %}
-                          {% endembed %}
-                      </li>
-                  {% endfor %}
-              </ul>
+    {% for thmbnl in thmbnlGui %}
+        <h4>Thumbnail - {{ thmbnl.theme }} / {{ thmbnl.size }} {% if thmbnl.block %}/ block{% endif %}</h4>
 
-              <pre>&lt;ul class="thumbnail-grid"&gt;
-&lt;li class="thumbnail-grid__col"&gt;
-  {{ "{% embed '@bower/thumbnail/thumbnail.html.twig' with {" }}
-      {{ 'href: "#",' }}
-      {{ "size: " ~ size ~ "," }}
-      {{ 'img: "path/to/your/img.jpg",' }}
-      {{ "btn: {" }}
-          {{ "label: 'Lire la suite'," }}
-          {{ "block: " ~ isblock ~ "," }}
-          {{ "theme: " ~ theme }}
-      {{ "}," }}
-      {{ "content: 'hello world !'" }}
-  {{ "} %}" }}
-      {{ "{% block thumbnail_body %}hello world{% endblock %}" }}
-  {{ "{% endembed %}" }}
-&lt;/li&gt;
-...
-&lt;/ul&gt;</pre>
-          {% endfor %}
-      {% endfor %}
-  {% endfor %}
+        <ul class="thumbnail-grid">
+            {% for item in 1..3 %}
+                <li class="thumbnail-grid__col">
+                    {% embed '@bower/thumbnail/thumbnail.html.twig' with {
+                        href: '#',
+                        size: thmbnl.size,
+                        img: img,
+                        btn: {
+                            label: 'Lire la suite',
+                            block: thmbnl.block,
+                            theme: thmbnl.theme
+                        }
+                    } %}
+                    {% endembed %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
 
     <h3>Sass parameters</h3>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Options</th>
