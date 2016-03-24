@@ -1,5 +1,5 @@
 <a href="{{ href }}" class="thumbnail thumbnail--{{ size|default('md') }}">
-    {% if img is defined %}
+    {% if img is defined and img %}
         <span class="thumbnail__img thumbnail__img--{{ size|default('md') }}" style="background-image: url('{{ img }}');"></span>
     {% endif %}
 
