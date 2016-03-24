@@ -29,6 +29,22 @@
                 </li>
             {% endfor %}
         </ul>
+
+        <pre>&lt;ul class="thumbnail-grid"&gt;
+    &lt;li class="thumbnail-grid__col"&gt;
+        {{ "{% embed '@bower/thumbnail/thumbnail.html.twig' with {" }}
+            {{ "href: '#'," }}
+            {{ "size: '" ~ thmbnl.size ~ "'," }}
+            {% if thmbnl.img %}{{ "img: '" ~ thmbnl.img ~ "'," }}{% endif %}
+            {{ "btn: {" }}
+                {{ "label: 'Lire la suite'," }}
+                {{ "theme: '" ~ thmbnl.theme ~ "'," }}
+                {{ "position: '" ~ thmbnl.position ~ "'," }}
+            {{ "}" }}
+        {{ "} %}" }}
+        {{ "{% endembed %}" }}
+    &lt;/li&gt;
+&lt;/ul&gt;</pre>
     {% endfor %}
 
     <h3>Sass parameters</h3>
