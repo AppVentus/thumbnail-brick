@@ -68,6 +68,7 @@
   width: if($tbnl-img--inner, calc(100% + #{$tbnl--border-width * 2}), 100%);
   display: block;
   background-size: cover;
+  background-position: center;
   border-top-left-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
   border-top-right-radius: if($tbnl-img--inner, $tbnl--border-radius, $tbnl--border-radius - $tbnl--border-width);
   user-select: none;
