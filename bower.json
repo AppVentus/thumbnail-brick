@@ -1,14 +1,15 @@
 {
-  "name": "thumbnail",
-  "homepage": "https://github.com/AppVentus/thumbnail-brick",
+  "name": "trowel-thumbnail",
+  "homepage": "https://github.com/Trowel/thumbnail",
   "authors": [
     "Loïc Goyet <loic@appventus.com>"
   ],
-  "description": "HTML & CSS library for thumbnail",
+  "description": "A trowel component to display thumbnails",
   "main": "thumbnail.scss",
   "moduleType": [],
   "keywords": [
     "css",
+    "scss",
     "html"
   ],
   "license": "MIT",
@@ -20,6 +21,6 @@
     "tests"
   ],
   "dependencies": {
-    "responsive-helper": "^1.1.1"
+    "trowel-responsive": "^1.1.1"
   }
 }
