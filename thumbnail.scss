@@ -24,6 +24,11 @@
   flex-direction: column;
   width: 100%;
 
+  @if $thumbnail-banner--generation {
+    position: relative;
+    overflow: hidden;
+  }
+
   @if $tbnl--box-shadow != none {
     box-shadow: $tbnl--box-shadow;
   }
@@ -196,6 +201,94 @@
     }
   }
 }
+
+
+/**
+ * thumbnail__banner
+ * --------------
+ */
+
+@mixin if-not-inherit ($property, $value) {
+  @if $value != inherit {
+    #{$property}: $value;
+  }
+}
+
+@mixin banner-position {
+  @if $thumbnail-banner--align == 'right' or $thumbnail-banner--align == 'left' {
+    $rotate-direction: if($thumbnail-banner--align == 'left', 1, -1);
+
+    #{$thumbnail-banner--align}: 100%;
+    margin-#{$thumbnail-banner--align}: -$thumbnail-banner--gutter;
+    transform-origin: top #{$thumbnail-banner--align};
+    transform: rotate(45deg * $rotate-direction);
+  } @else {
+    @error "The variable `$thumbnail-banner--align` must be a string value that can only be 'right' or 'left'";
+  }
+}
+
+@if $thumbnail-banner--generation {
+  .thumbnail__banner {
+    @include banner-position;
+    position: absolute;
+    top: 0;
+    background-color: $thumbnail-banner--background-color;
+    height: $thumbnail-banner--height;
+    width: get-hypotenuse($thumbnail-banner--gutter, $thumbnail-banner--gutter);
+    text-align: center;
+    user-select: none;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: $thumbnail-banner--background-color;
+
+      /**
+      * Big static value in order to make sure that for any
+      * `thumbnail banner gutter` value the before and after goes off the
+      * thumbnail element
+      */
+      width: 10000px;
+
+      /**
+      * We set a negative margin on x axis in order to avoid a very thin band
+      * where the `::after` and `::before` pseudo elements are not perfectly
+      * sticked to the `.thumbnail__banner`.
+      */
+      margin: 0 -1px;
+    }
+
+    &::before {
+      left: 100%;
+    }
+
+    &::after {
+      right: 100%;
+    }
+  }
+
+  .thumbnail__banner-content {
+    // `if-not-inherit` mixin avoid to generate useless declaration with an
+    // inherit value while still allow customisation via variables
+    @include if-not-inherit ('color', $thumbnail-banner--color);
+    @include if-not-inherit ('font-size', $thumbnail-banner--font-size);
+    @include if-not-inherit ('line-height', $thumbnail-banner--line-height);
+    @include if-not-inherit ('font-weight', $thumbnail-banner--font-weight);
+    @include if-not-inherit ('font-style', $thumbnail-banner--font-style);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    white-space: nowrap;
+  }
+}
+
 
 
 /**

@@ -3,6 +3,12 @@
         <span class="thumbnail__img thumbnail__img--{{ size|default('md') }}" style="background-image: url('{{ img }}');"></span>
     {% endif %}
 
+    {% if banner is defined and banner %}
+        <span class="thumbnail__banner">
+            <span class="thumbnail__banner-content">hello world !</span>
+        </span>
+    {% endif %}
+
     <span class="thumbnail__content">
         {% if btn.label is defined %}
             <span class="thumbnail__btn thumbnail__btn--{{ size|default('md') }} thumbnail__btn--theme-{{ btn.theme|default('default') }} thumbnail__btn--{{ btn.position }}">

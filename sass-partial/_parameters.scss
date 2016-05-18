@@ -67,6 +67,19 @@ $tbnl-btn--themes: (
 ) !default;
 
 
+// Banner
+$thumbnail-banner--generation: true !default;
+$thumbnail-banner--gutter: 50px !default;
+$thumbnail-banner--align: 'right' !default;
+$thumbnail-banner--background-color: rgb(255, 255, 255) !default;
+$thumbnail-banner--height: 30px !default;
+$thumbnail-banner--color: inherit !default;
+$thumbnail-banner--font-size: inherit !default;
+$thumbnail-banner--line-height: inherit !default;
+$thumbnail-banner--font-weight: inherit !default;
+$thumbnail-banner--font-style: inherit !default;
+
+
 // Grid
 $tbnlgrid--gutter: 30px !default;
 $tbnlgrid-col--width: (
