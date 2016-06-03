@@ -15,7 +15,7 @@
         <ul class="thumbnail-grid">
             {% for item in 1..3 %}
                 <li class="thumbnail-grid__col">
-                    {% embed '@bower/thumbnail/thumbnail.html.twig' with {
+                    {% embed '@bower/trowel-thumbnail/thumbnail.html.twig' with {
                         href: '#',
                         size: thmbnl.size,
                         img: thmbnl.img,
@@ -32,7 +32,7 @@
 
         <pre>&lt;ul class="thumbnail-grid"&gt;
     &lt;li class="thumbnail-grid__col"&gt;
-        {{ "{% embed '@bower/thumbnail/thumbnail.html.twig' with {" }}
+        {{ "{% embed '@bower/trowel-thumbnail/thumbnail.html.twig' with {" }}
             {{ "href: '#'," }}
             {{ "size: '" ~ thmbnl.size ~ "'," }}
             {% if thmbnl.img %}{{ "img: '" ~ thmbnl.img ~ "'," }}{% endif %}
