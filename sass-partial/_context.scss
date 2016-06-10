@@ -1,5 +1,9 @@
+// We disable QualifyingElement linter flag because the below selector want to
+// target only elements <a> and <button>
+// scss-lint:disable QualifyingElement
 @mixin when-tbnl-hovered {
-  .thumbnail:hover & {
+  a.thumbnail:hover &,
+  button.thumbnail:hover & {
     @content;
   }
 }

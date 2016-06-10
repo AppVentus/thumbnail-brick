@@ -33,15 +33,21 @@
     box-shadow: $tbnl--box-shadow;
   }
 
-  &:hover {
-    @if $tbnl-hover--box-shadow != none {
-      box-shadow: $tbnl-hover--box-shadow;
-    }
-  }
-
   &,
   * {
     box-sizing: border-box;
+  }
+}
+
+/* to make sure hover effect happens only on tags <a> and <button> */
+a,
+button {
+  &.thumbnail {
+    &:hover {
+      @if $tbnl-hover--box-shadow != none {
+        box-shadow: $tbnl-hover--box-shadow;
+      }
+    }
   }
 }
 
