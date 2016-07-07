@@ -282,16 +282,29 @@ button {
     // inherit value while still allow customisation via variables
     @include if-not-inherit ('color', $thumbnail-banner--color);
     @include if-not-inherit ('font-size', $thumbnail-banner--font-size);
-    @include if-not-inherit ('line-height', $thumbnail-banner--line-height);
     @include if-not-inherit ('font-weight', $thumbnail-banner--font-weight);
     @include if-not-inherit ('font-style', $thumbnail-banner--font-style);
 
+    line-height: $thumbnail-banner--height;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     white-space: nowrap;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      bottom: -1px;
+      left: -1px;
+      right: -1px;
+      background-color: $thumbnail-banner--background-color;
+      z-index: -1;
+      overflow: hidden;
+    }
   }
 }
 
