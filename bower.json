@@ -1,10 +1,10 @@
 {
-  "name": "trowel-thumbnail",
-  "homepage": "https://github.com/Trowel/thumbnail",
+  "name": "silverhold-thumbnail",
+  "homepage": "https://github.com/silverhold/thumbnail",
   "authors": [
     "Loïc Goyet <loic@appventus.com>"
   ],
-  "description": "A trowel component to display thumbnails",
+  "description": "A silverhold component to display thumbnails",
   "main": "thumbnail.scss",
   "moduleType": [],
   "keywords": [
@@ -21,7 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "trowel-responsive": "^1.2.0",
-    "trowel-bucket": "^1.2.0"
+    "silverhold-responsive": "^1.2.0",
+    "silverhold-bucket": "^1.2.0"
   }
 }

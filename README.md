@@ -2,5 +2,5 @@
 
 ## Installation
 ```sh
-bower install trowel-thumbnail
+bower install silverhold-thumbnail
 ```
